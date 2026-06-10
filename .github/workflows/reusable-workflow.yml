@@ -1,21 +1,19 @@
 name: Reusable Deploy
 on:
   workflow_call:
-    outputs:
-      result:
-        description: the result of the job run
-        type: string
-        value: ${{ jobs.deploy.outputs.outcome }}
     inputs:
       artifact-name:
         description: The name of the deployable artifact name
         type: string
         required: false
         default: dist
+    outputs:
+      result:
+        description: the result of the job run
+        value: ${{ jobs.deploy.outputs.outcome }}
     secrets:
       some-secret:
         description: a random value
-        type: string
         required: false
 jobs:
   deploy:
