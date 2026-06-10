@@ -4,6 +4,7 @@ on:
     outputs:
       result:
         description: the result of the job run
+        type: string
         value: ${{ jobs.deploy.outputs.outcome }}
     inputs:
       artifact-name:
